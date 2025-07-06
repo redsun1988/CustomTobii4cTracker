@@ -22,18 +22,14 @@ pip install CustomTobii4cTracker
 
 ```python
 from CustomTobii4cTracker import Tobii4cTracker
-from typing import Tuple
+from CustomTobii4cTracker.utils import TrackerInfo
 
-def on_center_change(center: Tuple[float, float]):
-    print(f"\rCenter changed to: {center}", end="")
+def on_center_change(center: TrackerInfo):
+    print(f"\rCenter changed to: {center.x, center.y, center.radius}", end="")
 
-main = Tobii4cTracker(target_color=(0, 191, 255))
-main.on_center_updated.subscribe(on_center_change)
-await main.start_monitoring()
-
-# Get the current gaze center at any moment
-current_center = main.find_center()
-print(f"Current gaze center: {current_center}")
+traker = Tobii4cTracker()
+traker.on_center_updated.subscribe(on_center_change)
+await traker.start_monitoring()
 ```
 
 ### API Reference
@@ -82,18 +78,15 @@ pip install CustomTobii4cTracker
 
 ```python
 from CustomTobii4cTracker import Tobii4cTracker
-from typing import Tuple
+from CustomTobii4cTracker.utils import TrackerInfo
 
-def on_center_change(center: Tuple[float, float]):
-    print(f"\rCenter changed to: {center}", end="")
+# Пример использования:
+def on_center_change(center: TrackerInfo):
+    print(f"\rCenter changed to: {center.x, center.y, center.radius}", end="")
 
-main = Tobii4cTracker(target_color=(0, 191, 255))
-main.on_center_updated.subscribe(on_center_change)
-await main.start_monitoring()
-
-# Получить текущие координаты центра взгляда в любой момент
-current_center = main.find_center()
-print(f"Current gaze center: {current_center}")
+traker = Tobii4cTracker()
+traker.on_center_updated.subscribe(on_center_change)
+await traker.start_monitoring()
 ```
 
 ### Описание API
