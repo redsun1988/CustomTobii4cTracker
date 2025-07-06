@@ -32,6 +32,6 @@ class ImageProcessor:
                 center_x = x + w/2
                 center_y = y + h/2
                 color = pil_image.getpixel((center_x, center_y))
-                centers.append((center_x, center_y, color))
+                centers.append((center_x, center_y, area, color))
 
         return centers
