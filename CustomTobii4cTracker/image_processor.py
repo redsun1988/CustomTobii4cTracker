@@ -7,9 +7,6 @@ from typing import List, Tuple
 
 
 class ImageProcessor:
-    def __init__(self, target_color: Tuple):
-        self.target_color = target_color
-
     def process_image(self, pil_image: Image.Image) -> List[Tuple[float, float]]:
         """Обрабатывает изображение и возвращает центры соответствующих форм"""
         open_cv_image = np.array(pil_image)
@@ -27,7 +24,7 @@ class ImageProcessor:
         centers = []
         for cnt in contours:
             area = cv2.contourArea(cnt)
-            if area > 1000:
+            if area > 100:
                 x, y, w, h = cv2.boundingRect(cnt)
                 center_x = x + w/2
                 center_y = y + h/2
