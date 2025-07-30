@@ -36,9 +36,6 @@ await traker.start_monitoring()
 
 #### Tobii4cTracker
 
-- **Parameters:**
-  - `target_color` (tuple): RGB color for target highlight (e.g., `(0, 191, 255)`)
-
 - **Events:**
   - `on_center_updated`: Subscribe to receive gaze center position as `(x, y)` coordinates (floats, in screen pixels or relative units)
 
@@ -92,9 +89,6 @@ await traker.start_monitoring()
 ### Описание API
 
 #### Tobii4cTracker
-
-- **Параметры:**
-  - `target_color` (кортеж): RGB-цвет для выделения цели (например, `(0, 191, 255)`)
 
 - **События:**
   - `on_center_updated`: подписка на получение координат центра взгляда `(x, y)` (float, в пикселях экрана или относительных единицах)
